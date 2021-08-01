@@ -35,6 +35,7 @@ const TestBookingPage = () => {
       <div class="Statusbar">
         <StatusBar stage="3" />
       </div>
+      <hr />
       <form class="contents" action="">
         <div class="row">
           <h2 class="Titles">VENUE</h2>

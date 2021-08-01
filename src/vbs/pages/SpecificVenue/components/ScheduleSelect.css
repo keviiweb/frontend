@@ -1,5 +1,5 @@
 .mainScheduleContainer {
-  background-color: black;
+  background-color: #bbbbbb;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .selectedDateDisplay {
-  color: #ecdbba;
+  color: #322c42;
   font-family: "Raleway", sans-serif;
   font-size: 30px;
   display: flex;
@@ -27,6 +27,7 @@
   height: 75%;
   overflow-y: scroll;
 }
+
 
 .schedulePreview {
   color: white;
@@ -57,17 +58,17 @@
 }
 
 .timeSlotAvailable {
-  background-color: #346751;
+  background-color: ;
   cursor: pointer;
 }
 
 .timeSlotSelected {
-  background-color: #c84b31;
+  background-color: #322c42;
   cursor: pointer;
 }
 
 .timeSlotBooked {
-  background-color: #888888;
+  background-color: rgb(0,0,0, 0.75);
 }
 
 .timeSlotText {

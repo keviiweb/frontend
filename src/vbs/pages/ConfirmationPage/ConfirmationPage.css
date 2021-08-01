@@ -14,31 +14,32 @@
 }
 
 .submitContainer {
-    margin-top: 3%;
     align-items: center;
     text-align: center;
     justify-content: center;
     height: 0%;
-    width: 35%;
+    width: 40%;
     padding: 0.5em;
     padding-bottom: 3%;
     padding-top: 1%;
-    background-color:#ECDBBA
+    background-color:#ffffff;
 }
 
 .submitContainer-text{
-    position: relative;
-    padding: 2rem;
+    /* position: relative;
+    padding: 2rem; */
 }
 
 
 .submitContainer-title{
-    color:#C84B31
+    color:#346751;
+    font-size: 2em;
+    
 }
 
 .confirmationHomeButton {
-    border: 1px solid #c84b31;
-    color: #c84b31;
+    border: 1px solid #322c42;
+    color: #322c42;
     text-decoration: none;
     font-family: "Roboto Condensed", sans-serif;
     padding: 1% 5%;
@@ -49,7 +50,7 @@
 }
   
 .confirmationHomeButton:hover {
-    background-color: #c84b31;
+    background-color: #322c42;
     color: white;
 }
 
@@ -62,8 +63,8 @@
 }
 
 .confirmationNewButton {
-    border: 1px solid #c84b31;
-    background-color: #c84b31;
+    border: 1px solid #346751;
+    background-color: #346751;
     color: white;
     text-decoration: none;
     font-family: "Roboto Condensed", sans-serif;
@@ -75,7 +76,7 @@
 }
 
 .confirmationNewButton:hover {
-    background-color: #993926;
+    background-color: #322c42;
 }
 
 @media screen and (max-width: 1000px) {
@@ -150,7 +151,7 @@
     }
 
     .confirmationNewButtonMobile {
-        border: 1px solid #c84b31;
+        border: 1px solid #322c42;
         color: white;
         text-decoration: none;
         font-family: "Roboto Condensed", sans-serif;

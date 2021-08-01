@@ -1,5 +1,5 @@
 .Venues-page {
-  background-color: #ffffff;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,12 +9,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 70vw;
+  width: 80vw;
   justify-content: flex-start;
 }
 
 .venueLink:nth-of-type(3n-1) {
-  margin: 0 5vw;
+  margin: 0 2.5vw;
   margin-bottom: 2.5vh;
 }
 
@@ -23,12 +23,14 @@
   flex-direction: column;
   background-size: cover;
   justify-content: flex-end;
-  width: 20vw;
-  height: 13vw;
+  width: 25vw;
+  height: 18vw;
+  border-radius: 10px;
+  box-shadow: 0px 5px 0px 5px #322c42;
 }
 
 .venueLink {
-  margin-bottom: 2.5vh;
+  margin-bottom: 5vh;
   text-decoration: none;
 }
 
@@ -38,13 +40,14 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: 3%;
-  height: 20%;
+  height: 16%;
   width: 100%;
-  color: #ffffff;
-  background-color: rgba(00, 00, 00, 0.5);
-  letter-spacing: 1.5px;
+  color: #322c42;
+  font-weight: bold;
+  background-color: rgba(255, 250, 250 , 0.35);
   font-family: Roboto Condensed;
-  font-size: 25px;
+  font-size: 1.25em;
+  font-weight: 800;
 }
 
 @media only screen and (max-width: 1200px) {

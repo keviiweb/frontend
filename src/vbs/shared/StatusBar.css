@@ -3,13 +3,20 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 70vw;
+  width: 80vw;
   height: 10vh;
   min-height: 100px;
+  margin: 1.5em;
 }
 
 .progressBar {
   display: block;
+}
+
+.vbs {
+  font-weight: 625;
+  font-style: normal;
+  color: #322c42;
 }
 
 @media (max-width: 1200px) {

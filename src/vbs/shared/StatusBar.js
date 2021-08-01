@@ -5,7 +5,7 @@ import ProgressBar from "./ProgressBar";
 const StatusBar = ({ stage }) => {
   return (
     <div className="statusBarContainer">
-      <h1 className="vbs">VENUE BOOKING SYSTEM</h1>
+      <h1 className="vbs">Venue Booking System</h1>
       <ProgressBar stage={stage} />
     </div>
   );

@@ -2,16 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 .navbar-name {
-  color: #ecdbba;
+  color: #322c42;
   font-family: "Raleway", sans-serif;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 650;
   font-size: 42px;
   margin-left: 5vw;
 }
 
 .NavbarItems {
-  background-color: #c84b31;
+  background-color: #ffffff;
   height: 10vh;
   width: 100%;
   display: flex;
@@ -41,13 +41,19 @@
 }
 
 .nav-links {
-  color: #ffffff;
+  display: block;
+  color: #322c42;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
   text-align: center;
   text-decoration: none;
+  padding: 1.075em;
+}
+.nav-links:hover {
+  color: #ffffff;
+  background-color: #322c42;
 }
 
 .nav-links:nth-of-type(2) {

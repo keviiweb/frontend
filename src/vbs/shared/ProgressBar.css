@@ -25,7 +25,7 @@
   height: 20px;
   width: 20px;
   font-size: 20px;
-  color: gray;
+  color: #aaaaaa;
   overflow-x: visible;
 }
 
@@ -45,7 +45,7 @@
 .line {
   width: 33%;
   height: 5px;
-  background-color: gray;
+  background-color: #aaaaaa;
 }
 
 .line.updated {
@@ -70,11 +70,12 @@
   width: 0;
   overflow-x: visible;
   text-decoration: none;
-  color: black;
+  color: #322c42;
+  
 }
 
 .link.enabled {
-  color: #346751 !important;
+  color: #322c42 !important;
 }
 
 .link.enabled:hover {

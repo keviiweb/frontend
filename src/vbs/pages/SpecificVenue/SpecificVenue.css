@@ -9,13 +9,16 @@
 }
 
 .banner {
-  width: 70%;
-  background-color: #ecdbba;
-  text-align: center;
-  font-family: "Raleway", sans-serif;
+  width: 65%;
+  background-color: #dddddd;
+  text-align: start;
+  font-family: "Roboto", sans-serif;
   margin: 0 0;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
   padding: 0.5%;
+  color: #322c42;
+  font-weight:650;
+  font-size: 2.5em;
 }
 
 .vbs {
@@ -32,7 +35,7 @@
 
 .specificVenueLeftSide {
   flex-direction: column;
-  width: 70%;
+  width: 60%;
   height: 70vh;
 }
 
@@ -82,7 +85,7 @@
 }
 
 .enabled {
-  background-color: #c84b31;
+  background-color: #322c42;
 }
 
 .enabled:hover {
