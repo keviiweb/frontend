@@ -1,4 +1,4 @@
-.confirmationContainer {
+.confirmation__container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -8,12 +8,12 @@
     background-color: inherit;
 }
 
-.confirmationTitle {
+.confirmation__title {
     width: 90%;
     align-self:left;
 }
 
-.submitContainer {
+.submit__container {
     margin-top: 3%;
     align-items: center;
     text-align: center;
@@ -26,17 +26,17 @@
     background-color:#ECDBBA
 }
 
-.submitContainer-text{
+.submit__container__textbox{
     position: relative;
     padding: 2rem;
 }
 
 
-.submitContainer-title{
+.submit__container__title{
     color:#C84B31
 }
 
-.confirmationHomeButton {
+.confirmation__button__home {
     border: 1px solid #c84b31;
     color: #c84b31;
     text-decoration: none;
@@ -48,20 +48,12 @@
     justify-content: center;
 }
   
-.confirmationHomeButton:hover {
+.confirmation__button__home:hover {
     background-color: #c84b31;
     color: white;
 }
 
-.bottomNavigation {
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1% 0;
-}
-
-.confirmationNewButton {
+.confirmation__button__new {
     border: 1px solid #c84b31;
     background-color: #c84b31;
     color: white;
@@ -74,12 +66,22 @@
     justify-content: center;
 }
 
-.confirmationNewButton:hover {
+.confirmation__button_new:hover {
     background-color: #993926;
 }
 
+.navigation__bottom {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 0;
+}
+
+
+
 @media screen and (max-width: 1000px) {
-    .submitContainer {
+    .submit__container {
         margin-top: 3%;
         align-items: center;
         text-align: center;
@@ -92,7 +94,7 @@
 
 
 @media screen and (max-width: 800px) {
-    .submitContainer {
+    .submit__container {
         margin-top: 3%;
         align-items: center;
         text-align: center;
@@ -104,7 +106,7 @@
 }
 
 @media screen and (max-width: 700px) {
-    .submitContainer {
+    .submit__container {
         margin-top: 3%;
         align-items: center;
         text-align: center;
@@ -118,7 +120,7 @@
 
 
 @media screen and (max-width: 600px) {
-    .submitContainer {
+    .submit__container {
         margin-top: 3%;
         align-items: center;
         text-align: center;
@@ -131,12 +133,12 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .bottomNavigation {
+    .navigation__bottom {
       width: 95%;
       height: 10vh;
     }
 
-    .confirmationHomeButtonMobile {
+    .confirmation__button__home--mobile {
       border: 1px solid #c84b31;
       color: #c84b31;
       text-decoration: none;
@@ -149,7 +151,7 @@
       justify-content: center;
     }
 
-    .confirmationNewButtonMobile {
+    .confirmation__button__new--mobile {
         border: 1px solid #c84b31;
         color: white;
         text-decoration: none;
