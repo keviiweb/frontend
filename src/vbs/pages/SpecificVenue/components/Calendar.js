@@ -24,41 +24,14 @@ const ReactCalendar = ({ selectedDate, handleSelectedDateChange }) => {
 
   const [date, setDate] = useState(new Date());
 
-  //dates and timings used below are for readability purposes and not for intended use
-  //there are actual ids and timings to be used
 
   const [simplifiedDate, setSimplifiedDate] = useState();
-  const [trainingDate, setTrainingDate] = useState([]);
-  const [confirmTrainingTimes, setConfirmTrainingTimes] = useState([]);
-  const [trainingTimes, setTrainingTimes] = useState([]);
 
   //Sets the actual Date() and simplifiedDate()
   const onChange = (date) => {
     handleSelectedDateChange(date);
     setSimplifiedDate(date.getUTCDate() + 1 + "/" + (date.getUTCMonth() + 1));
   };
-
-  //Confirms data is passed from child to parent, mainly the timings
-  const handleClick = () => {
-    setTrainingDate(simplifiedDate);
-    setConfirmTrainingTimes(trainingTimes);
-  };
-
-  //Clears date and time for own debugging purposes
-  const clearTimings = () => {
-    setTrainingDate();
-    setConfirmTrainingTimes([]);
-  };
-
-  //For printing out the list of training times displayed below the date
-  const listTime = confirmTrainingTimes.map((time, index) => (
-    <ul key={index}>{time}</ul>
-  ));
-
-  //Child to parent setState functionality
-  function setTrainingTimesFn(timings) {
-    setTrainingTimes(timings);
-  }
 
   //Display label of react-calendar
   function displayLabel(date, label, locale, view) {
@@ -76,6 +49,22 @@ const ReactCalendar = ({ selectedDate, handleSelectedDateChange }) => {
       "November",
       "December",
     ];
+
+
+    // const monthNamesFull = [
+    //   "Jan",
+    //   "Feb",
+    //   "Mar",
+    //   "Apr",
+    //   "May",
+    //   "June",
+    //   "July",
+    //   "Aug",
+    //   "Sept",
+    //   "Oct",
+    //   "Nov",
+    //   "Dec",
+    // ];
 
     var month = monthNamesFull[date.getMonth()];
     var year = date.getFullYear();
