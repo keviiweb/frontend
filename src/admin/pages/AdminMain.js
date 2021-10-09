@@ -4,7 +4,7 @@ import OuterTabs from "./OuterTabs";
 import BookingRequest from "./BookingRequests/BookingRequest";
 import { useHistory } from "react-router-dom";
 import { MdSettingsInputComponent } from "react-icons/md";
-
+import RecurringBookingModal from './SpecificReqModal/RecurringBooking/RecurringBookingModal'
 
 const AdminMain = () => {
   const history = useHistory();
@@ -18,7 +18,10 @@ const AdminMain = () => {
       <OuterTabs>
         <div tabName="Venue Management">Venue Management</div>
         <BookingRequest tabName="Booking Request" />
-        <div tabName="Recurring Booking"> Recurring Booking</div>
+        <div tabName="Recurring Booking"> 
+          Recurring Booking
+          <RecurringBookingModal />
+        </div>
         <div tabName="Calendar View">Calendar View</div>
       </OuterTabs>
     </div>
