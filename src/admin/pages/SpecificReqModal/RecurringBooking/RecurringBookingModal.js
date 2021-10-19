@@ -50,11 +50,12 @@ const RecurringBookingModal = (props) => {
 
     Modal.setAppElement("#root");
 
-    const modalStyle = {
+    const modalStyleRecModal = {
         overlay: {
-          backgroundColor: "rgba(255, 255, 255, 0.75)",
+          backgroundColor: "rgba(0, 0, 0, 0.25)",
         },
         content: {
+        width: "70%",
           position: "fixed",
           display: "flex",
           flexDirection: "row",
@@ -81,6 +82,7 @@ const RecurringBookingModal = (props) => {
     }
 
     function openModal() {
+        fetchData();
         setModalOpen(true);
     }
 
@@ -92,10 +94,11 @@ const RecurringBookingModal = (props) => {
     return (
         <div>
             <button onClick={openModal}>Open</button>
+            <button onClick={fetchData}>Fetch</button>
             <Modal
                 isOpen={modalOpen}
                 onRequestClose={closeModal}
-                style={modalStyle}
+                style={modalStyleRecModal}
             >
                 <button
                     style={closeButtonStyle}

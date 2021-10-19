@@ -44,27 +44,6 @@ const SpecificReqModal = (props) => {
   const api = axios.create({ baseURL: BASEURL });
   api.defaults.headers.common["Authorization"] = "KEVII1!";
 
-  // function fetchData() {
-  //     api
-  //         .get(
-  //             // `/api/v1/bookingreq/?bookingRequestId=610d6f6cf210a28425b80dea`
-  //             `/api/v1/bookingreq/intent?bookingRequestId=611c93c6c27da22407d6cf6c`
-  //         )
-  //         .then((res) => {
-  //             console.log(res, "Object retrieved");
-  //             setCCA(res.data.bookingRequest.cca);
-  //             setEmail(res.data.bookingRequest.email);
-  //             setID(res.data.bookingRequest.id);
-  //             setTimeSlots(res.data.bookingRequest.timingSlots);
-  //             // getReqDate(res.data.bookingRequest.createdAt);
-  //             // getUnixDate(res.data.bookingRequest.date);
-  //             setBookDate(res.data.bookingRequest.date);
-  //             setPurpose(res.data.bookingRequest.notes);
-  //             setVenue(res.data.bookingRequest.venue.name);
-  //             setBookedConflicts(res.data.conflicts);
-  //         })
-  //         console.log(timeSlots);
-  // }
 
   function approveIntent() {
     api
@@ -80,14 +59,30 @@ const SpecificReqModal = (props) => {
     closeModal();
   }
 
+  function rejectIntent() {
+    api
+      .post("/api/v1/bookingreq/reject", {
+        bookingRequestId: req.id,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .then((e) => {
+        console.log(e, "Error in approve intent");
+      });
+    closeModal();
+  }
+
   Modal.setAppElement("#root");
 
-  const modalStyle = {
+  const modalStyleReqModal = {
     overlay: {
-      backgroundColor: "rgba(255, 255, 255, 0.75)",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     content: {
-      position: "fixed",
+      widthMax:"90%",
+      heightMax:"90%",
+      position: "absolute",
       display: "flex",
       flexDirection: "row",
       top: "50%",
@@ -96,7 +91,7 @@ const SpecificReqModal = (props) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      overflow: "auto",
+      overflowY: "auto",
       WebkitOverflowScrolling: 'touch',
     },
   };
@@ -121,7 +116,7 @@ const SpecificReqModal = (props) => {
       <Modal
         isOpen={props.modalOpen}
         onRequestClose={closeModal}
-        style={modalStyle}
+        style={modalStyleReqModal}
       >
         <button
           style={closeButtonStyle}
@@ -177,8 +172,8 @@ const SpecificReqModal = (props) => {
               req={req}
             />
             <div className="specificreqmodal__bottomNavigation">
-              <Link className="specificreqmodal__rejectbutton">Reject</Link>
-              <Link className="specificreqmodal__acceptbutton">Accept</Link>
+              <Link className="specificreqmodal__rejectbutton" onClick={() => rejectIntent}>Reject</Link>
+              <Link className="specificreqmodal__acceptbutton" onClick={() => approveIntent}>Accept</Link>
             </div>
           </div>
         </div>

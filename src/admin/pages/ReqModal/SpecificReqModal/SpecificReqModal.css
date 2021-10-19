@@ -1,50 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-.recurringbookingmodal__container {
-    padding-bottom: 2%;
-}
-
-.recurringbookingmodal__closebutton {
+.specificreqmodal__closebutton {
     display: flex; 
     justify-content: right;
     align-self: right;
 }
 
-.recurringbookingmodal__tablecontainer {
-    height: 100%;
-}
-
-.recurringbookingmodal__container h2{
-    font-family: 'Raleway', sans-serif;
-}
-
-.recurringbookingmodal__table {
-    padding-bottom: 2%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.recurringbookingmodal__table span {
-    padding: 1px;
-    margin: 4px;
-    background: #ECDBBA;
-    border-radius: 1px;
-    font-weight: 300;
-    display: table;
+.specificreqmodal__tablecontainer {
+    width: 100%;
+    display: flex;
     justify-content: center;
 }
 
-.recurringbookingmodal__table td,
-.recurringbookingmodal__table th{
+.specificreqmodal__tablecontainer h2{
+    font-family: 'Raleway', sans-serif;
+}
+
+.specificreqmodal__table {
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+.specificreqmodal__table td,
+.specificreqmodal__table th{
     font-family: 'Roboto Condensed', sans-serif;
-    padding: 10px;
+    padding: 2px;
     border: 1px solid #ECDBBA;
     border-collapse: collapse;
     border-spacing: 0px;
 }
 
-.recurringbookingmodal__table h5{
+.specificreqmodal__table h5{
     background-color: #ECDBBA;
     margin-right: 90px;
     margin-top: 2px;
@@ -52,12 +39,11 @@
     margin-left: 2px;
 }
 
-.recurringbookingmodal__td__bg {
+.specificreqmodal__td__bg {
     background-color: #ECDBBA;
 }
 
-
-.recurringbookingmodal__rejectbutton {
+.specificreqmodal__rejectbutton {
     border-radius: 5px;
     border: 1px solid #c84b31;
     color: #c84b31;
@@ -70,12 +56,13 @@
     justify-content: center;
 }
   
-.recurringbookingmodal__rejectbutton:hover {
+.specificreqmodal__rejectbutton:hover {
     background-color: #c84b31;
     color: white;
 }
 
-.recurringbookingmodal__bottomNavigation {
+.bottomNavigation {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -83,7 +70,7 @@
     height: 40px;
 }
 
-.recurringbookingmodal__acceptbutton {
+.specificreqmodal__acceptbutton {
     border-radius: 5px;
     border: 1px solid #c84b31;
     background-color: #c84b31;
@@ -97,17 +84,17 @@
     justify-content: center;
 }
 
-.recurringbookingmodal__acceptbutton:hover {
+.specificreqmodal__acceptbutton:hover {
     background-color: #993926;
 }
 
-.recurringbookingmodal__reviewbutton__container {
+.specificreqmodal__reviewbutton__container {
     display:flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.recurringbookingmodal__reviewbutton__accept {
+.specificreqmodal__reviewbutton__accept {
     width: 30px;
     border: 1px solid #346751;
     color: #346751;
@@ -122,7 +109,7 @@
     margin: 4px;
 }
 
-.recurringbookingmodal__reviewbutton__reject {
+.specificreqmodal__reviewbutton__reject {
     width: 30px;
     border: 1px solid #c84b31;
     color: #C84B31;
@@ -138,3 +125,7 @@
 
 }
   
+/* .specificreqmodal__reviewbutton:hover {
+    background-color: #c84b31;
+    color: white;
+} */
