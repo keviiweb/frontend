@@ -55,7 +55,7 @@
 }
 
 .pendingreq__table tr:hover {
-  border: 1px solid #ecdbba;
+  /* border: 1px solid #ecdbba; */
   background-color: #ecdbba;
   cursor: pointer;
 }
