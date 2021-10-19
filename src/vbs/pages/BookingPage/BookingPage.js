@@ -5,6 +5,7 @@ import StatusBar from "../../shared/StatusBar";
 import { Link } from "react-router-dom";
 import ccaDATA from "./ccaDATA";
 import validator from "validator";
+import axios from "axios";
 
 const BookingPage = () => {
   const { selectedDate, selectedTimeslot, venue, selectedSubvenue } =
@@ -21,6 +22,7 @@ const BookingPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     history.push("/vbs/confirmation");
+    api.push(email, purpose,  selectedDate, selectedTimeslot, venue, selectedSubvenue)
   };
 
   const emailValidator = (e) => {
@@ -33,6 +35,12 @@ const BookingPage = () => {
       setEmailError("Enter valid Email!");
     }
   };
+
+  const BASEURL = "https://britannic.herokuapp.com/";
+
+  const api = axios.create({ baseURL: BASEURL });
+  api.defaults.headers.common["Authorization"] = "KEVII1!";
+
 
   return (
     <div className="BookingPageMainDiv">

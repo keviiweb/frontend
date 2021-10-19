@@ -1,4 +1,4 @@
-.pendingrequest__main__container {
+.ongoingrequest__main__container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: space-around;
 }
 
-.completedrequest__main__container {
+.terminatedrequest__main__container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -14,23 +14,35 @@
   justify-content: space-around;
 }
 
-.BookingRequestPageContainer {
+.RecurringBookingPageContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-.BookingRequestsPageSortBy {
+.RecurringBookingsPageSortBy {
   margin-left: 90%;
-  margin-top: -2.5%;
+  margin-top: -4.5%;
+  margin-bottom: 3%;
   background-color: #ecdbba;
   padding: 8px;
-  margin-bottom: 2%;
   font-size: 16px;
   font-family: Roboto Condensed;
 }
 
-.pendingreq__table {
+.RecurringBookingsAddNewBooking {
+  margin-left: 65%;
+  margin-top: -3%;
+  width: 20%;
+  text-align: center;
+  background-color: green;
+  padding: 6px;
+  font-size: 14px;
+  font-family: Roboto Condensed;
+  border-radius: 8px;
+}
+
+.RecurringBookingTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   min-width: 100%;
@@ -38,7 +50,7 @@
   justify-content: flex-start;
 }
 
-.pendingreq__table th {
+.RecurringBookingTable th {
   border: 1px solid #ecdbba;
   padding: 8px;
   height: 40px;
@@ -46,7 +58,7 @@
   font-family: Roboto Condensed;
 }
 
-.pendingreq__table td {
+.RecurringBookingTable td {
   padding: 8px;
   font-size: 12px;
   font-weight: 520;
@@ -54,13 +66,13 @@
   border-bottom: 1px solid #ecdbba;
 }
 
-.pendingreq__table tr:hover {
+.RecurringBookingTable tr:hover {
   border: 1px solid #ecdbba;
   background-color: #ecdbba;
   cursor: pointer;
 }
 
-.pendingreq__table th {
+.RecurringBookingTable th {
   padding-bottom: 12px;
   padding-top: 12px;
   text-align: left;
@@ -69,7 +81,7 @@
   color: #000;
 }
 
-.BookingRequestpagination {
+.RecurringBookingpagination {
   display: flex;
   justify-content: center;
   list-style: none;
@@ -79,7 +91,7 @@
   bottom: -7%;
 }
 
-.BookingRequestpagination a {
+.RecurringBookingpagination a {
   padding: 8px;
   color: #c84b31;
   font-size: 16px;
@@ -87,35 +99,39 @@
   font-weight: 500;
 }
 
-.BookingRequestpagination__link {
+.RecurringBookingpagination__link {
   font-weight: bold;
 }
 
-.BookingRequestpagination__link--active a {
+.RecurringBookingpagination__link--active a {
   color: #fff;
   background: #c84b31;
   padding: 5px;
   font-family: Roboto Condensed;
 }
 
-.BookingRequestpagination__link--disabled a {
+.RecurringBookingpagination__link--disabled a {
   color: #c84b31;
   cursor: initial;
 }
 
-.BookingRequestPageVenueHeader {
+.RecurringBookingPageVenueHeader {
   width: 15%;
 }
 
-.BookingRequestPageCCAHeader {
+.RecurringBookingPageCCAHeader {
   width: 15%;
 }
 
-.BookingRequestPageTimeBookedHeader {
+.RecurringBookingPageTimeBookedHeader {
   width: 20%;
 }
 
-.BookingRequestPagePurposeHeader {
+.RecurringBookingTerminationDateHeader{
+  width: 15%;
+}
+
+.RecurringBookingPagePurposeHeader {
   width: 40%;
 }
 

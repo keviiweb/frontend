@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import InnerTabs from "../InnerTabs";
 import Modal from "react-modal";
-import "./BookingRequest.css";
-import PendingRequest from "./PendingRequest";
-import CompletedRequest from "./CompletedRequest";
-import FilterSort from "./FilterSort";
+import "./RecurringBooking.css";
+import OngoingRecurring from "./OngoingRecurring";
+import TerminatedRecurring from "./TerminatedRecurring";
+import FilterSort from "../BookingRequests/FilterSort";
 import axios from "axios";
 
-const BookingRequest = () => {
-  const [loading, setLoading] = useState(true);
+const RecurringBooking = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddNewBookingModalOpen, setIsAddNewBookingModalOpen] = useState(false);
   const [ccaFilter, setCcaFilter] = useState([]);
   const [venueFilter, setVenueFilter] = useState([]);
   const [dateFilter, setDateFilter] = useState([]);
   const [sortBy, setSortBy] = useState([]);
-  const [pendingBookingRequest, setPendingBookingRequest] = useState([]);
-  const [completedBookingRequest, setCompletedBookingRequest] = useState([]);
-  const [fetchedCompletedRequest, setFetchedCompletedRequest] = useState(false);
-  const [fetchedPendingRequest, setFetchedPendingRequest] = useState(false);
+  const [ongoingRecurring, setOngoingRecurring] = useState([]);
+  const [terminatedRecurring, setTerminatedRecurring] = useState([]);
+  const [fetchedTerminated, setfetchedTerminated] = useState(false);
+  const [fetchedOngoing, setfetchedOngoing] = useState(false);
   const [isPending, setPending] = useState(true);
-  const Months = {1:'Jan',2: 'Feb', 3: 'Mar', 4:'Apr', 5:'May', 6: 'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
+  const daysOfWeek = {1:'Mon',2: 'Tue', 3: 'Wed', 4:'Thu', 5:'Fri', 6: 'Sat', 7:'Sun'}
+  const Months = {'01':'Jan', '02': 'Feb', '03': 'Mar', '04':'Apr', '05':'May', '06': 'Jun', '07':'Jul', '08':'Aug', '09':'Sep', '10':'Oct', '11':'Nov', '12':'Dec'}
 
   const BASEURL = "https://britannic.herokuapp.com/";
 
@@ -29,19 +30,19 @@ const BookingRequest = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = () => {
-    api.get("/api/v1/bookingreq/all").then((res) => {
+    api.get("/api/v1/recurringBooking/search").then((res) => {
       console.log(res);
-      setPendingBookingRequest(
-        res.data.bookingRequest.slice(0, res.data.bookingRequest.length)
+      setOngoingRecurring(
+        res.data.recurringBookings
       );
-      setFetchedPendingRequest(true);
+      setfetchedOngoing(true);
     });
-    api.get("/api/v1/bookingreq/all?APPROVED||REJECTED").then((res) => {
+    api.get("/api/v1/recurringBooking/search").then((res) => {
       console.log(res);
-      setCompletedBookingRequest(res.data.bookingRequest);
-      setFetchedCompletedRequest(true);
+      setTerminatedRecurring(res.data.recurringBookings);
+      setfetchedTerminated(true);
     });
   };
 
@@ -61,37 +62,30 @@ const BookingRequest = () => {
     },
   };
 
-console.log(dateFilter);
-
-const handleRest = () => {
-  setCcaFilter([]);
-  setDateFilter([]);
-  setVenueFilter ([]);
-}
-
-const openModal = () => {
-  setIsModalOpen(true);
-  handleRest();
-}
-
   Modal.setAppElement("#root");
   return (
-    <div className="BookingRequestPageContainer">
+    <div className="RecurringBookingPageContainer">
       <InnerTabs>
         <div
           style={{ width: "100%" }}
-          tabName="Pending"
+          tabName="Ongoing"
           onClick={() => setPending(true)}
-        >
+        > 
           <div
-            className="BookingRequestsPageSortBy"
+            className="RecurringBookingsAddNewBooking"
+            onClick={() => setIsAddNewBookingModalOpen(true)}
+          >
+            Add New Booking
+          </div>
+          <div
+            className="RecurringBookingsPageSortBy"
             onClick={() => setIsModalOpen(true)}
           >
             Sort By
           </div>
-          {fetchedCompletedRequest && fetchedPendingRequest ? (
-            <PendingRequest
-              bookingRequest={pendingBookingRequest}
+          {fetchedTerminated && fetchedOngoing ? (
+            <OngoingRecurring
+              ongoingRecurring={ongoingRecurring}
               ccaFilter={ccaFilter}
               dateFilter={dateFilter}
               venueFilter={venueFilter}
@@ -102,18 +96,24 @@ const openModal = () => {
           )}
         </div>
         <div
-          tabName="Completed"
+          tabName="Terminated"
           style={{ width: "100%" }}
           onClick={() => setPending(false)}
         >
           <div
-            className="BookingRequestsPageSortBy"
+            className="RecurringBookingsPageSortBy"
             onClick={() => setIsModalOpen(true)}
           >
             Sort By
           </div>
-          {fetchedCompletedRequest && fetchedPendingRequest ? (
-            <CompletedRequest bookingRequest={completedBookingRequest} Months={Months} />
+          {fetchedTerminated && fetchedOngoing ? (
+            <TerminatedRecurring 
+            terminatedRecurring={terminatedRecurring}
+            ccaFilter={ccaFilter}
+            dateFilter={dateFilter}
+            venueFilter={venueFilter} 
+            Months={Months}
+            />
           ) : (
             <div>Loading...</div>
           )}
@@ -135,14 +135,23 @@ const openModal = () => {
             setSortBy={setSortBy}
             isPending={isPending}
             setIsModalOpen={setIsModalOpen}
-            pendingBookingRequest={pendingBookingRequest}
-            completedBookingRequest={completedBookingRequest}
+            pendingBookingRequest={ongoingRecurring}
+            completedBookingRequest={terminatedRecurring}
             Months={Months}
           />
+        }
+      </Modal>
+      <Modal
+        isOpen={isAddNewBookingModalOpen  }
+        onRequestClose={() => setIsAddNewBookingModalOpen(false)}
+        style={modalStyle}
+      >
+        {
+          <div>Add New Booking</div>
         }
       </Modal>
     </div>
   );
 };
 
-export default BookingRequest;
+export default RecurringBooking;

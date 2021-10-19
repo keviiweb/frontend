@@ -25,11 +25,12 @@
   border-width: 0.5vw;
 }
 
-.list_content {
-  list-style: none;
-  background-color: white;
-  margin: 0vh;
-  width: 100%;
+.list_content{
+    list-style:none;
+    background-color:white;
+    margin:0vh;
+    width:100%;
+    column-count:2;
 }
 
 .buttons {

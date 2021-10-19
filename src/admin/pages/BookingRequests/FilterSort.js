@@ -40,15 +40,7 @@ const FilterSort = (props) => {
     keyType: "number",
   });
 
-  const { handleCCA, CCAItems } = useChecklist(possibleCCAs, {
-    key: "_id",
-    keyType: "number",
-  });
-
-  const { handleDate, DatesItems } = useChecklist(possibleDates, {
-    key: "_id",
-    keyType: "number",
-  });
+  console.log(venueItems);
 
   const handleRest = () => {
     props.setCcaFilter([]);
@@ -76,7 +68,6 @@ const FilterSort = (props) => {
               </li>
             ))}
           </ul>
-
           <label>CCA</label>
           <ul className="list_content">
             {listofCCA.map((obj) => (
@@ -92,39 +83,15 @@ const FilterSort = (props) => {
               </li>
             ))}
           </ul>
-
-          <label>Dates</label>
-          <ul className="list_content">
-            {listofDates.map((obj) => (
-              <li key={obj._id}>
-                <input
-                  type="checkbox"
-                  data-key={obj._id}
-                  onChange={() =>
-                    props.setDateFilter(props.dateFilter.concat(obj.label))
-                  }
-                />
-                <label>{obj.label}</label>
-              </li>
-            ))}
-          </ul>
+          console.log(props.dateFilter);
+          <button
+            className="submit"
+            onClick={() => props.setIsModalOpen(false)}
+          >
+            Submit
+          </button>
         </div>
       </form>
-      <div className="buttons">
-        <button
-          className="cancel"
-          onClick={() => {
-            handleRest();
-            props.setIsModalOpen(false);
-          }}
-        >
-          Cancel
-        </button>
-
-        <button className="submit" onClick={() => props.setIsModalOpen(false)}>
-          Submit
-        </button>
-      </div>
     </div>
   );
 };

@@ -5,10 +5,11 @@ const CompletedRequest = (props) => {
 
     const [currentPage, setCurrentPage] = useState(0);
     const [bookingRequest, setBookingRequest] = useState(props.bookingRequest)
-    const PER_PAGE = 12;
+    const PER_PAGE = 20;
     const offset = currentPage * PER_PAGE;
     const currentPageData = bookingRequest.slice(offset, offset + PER_PAGE);
     const pageCount = Math.ceil(bookingRequest.length / PER_PAGE);
+    const Months = props.Months;
   
   
     function handlePageClick({ selected: selectedPage }) {
@@ -16,8 +17,8 @@ const CompletedRequest = (props) => {
     }
     
     return (
-        <div>
-        <table>
+        <div className='completedrequest__main__container'>
+        <table className='pendingreq__table '>
             <thead>
                 <th className='BookingRequestPageVenueHeader'>Venue</th>
                 <th className='BookingRequestPageCCAHeader'>CCA</th>
@@ -29,12 +30,10 @@ const CompletedRequest = (props) => {
                 <tbody>
                     <td>{req.venue.name}</td> 
                     <td>{req.cca}</td>
-                    <td style={{display: 'inline-flex', justifyContent:"space-around"}}>
-                        {req.timingSlots.map((slot) =>
-                        <div style={{padding:'4px',marginRight:'4px',background: "#ECDBBA", borderRadius: '1px', fontWeight:'500'}}>
-                            {slot}
-                        </div>
-                    )}</td>
+                    <td>
+                        {Months[new Date(req.date).getMonth()]} {new Date(req.date).getDate()} {" | "}
+                        {req.timingSlots[0].split(" ")[0]} - {req.timingSlots[req.timingSlots.length-1].split(" ")[2]}
+                    </td>   
                     <td>{req.notes}</td> 
                     {req.isApproved ? 
                     (<td style={{color:'#c84b31', textAlign:'center', fontWeight:'700', fontSize:'16px'}}> APPROVED </td>): 
@@ -49,11 +48,11 @@ const CompletedRequest = (props) => {
           nextLabel={"→"}
           pageCount={pageCount}
           onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          previousLinkClassName={"pagination__link"}
-          nextLinkClassName={"pagination__link"}
-          disabledClassName={"pagination__link--disabled"}
-          activeClassName={"pagination__link--active"}
+          containerClassName={"BookingRequestpagination"}
+          previousLinkClassName={"BookingRequestpagination__link"}
+          nextLinkClassName={"BookingRequestpagination__link"}
+          disabledClassName={"BookingRequestpagination__link--disabled"}
+          activeClassName={"BookingRequestpagination__link--active"}
         />
     </div>
     )

@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+.NewRecurringForm{
+    display:flex;
+    flex-direction:column;
+    font-family: "Roboto Condensed", sans-serif;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.NewRecurringTitle{
+    align-items: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin:1%;
+}
+
+.NewRecurringForm-row{
+    display:flex;
+    flex-direction:row;
+    margin:2%;
+}
+
+.NewRecurringForm-row-content{
+    display:flex;
+    flex-direction:row;
+    margin-right:2%;
+    width:25vw;
+}
+
+.NewRecurringForm-row-content-label{
+    font-size:16px;
+    font-weight:300px;
+    margin-right:1%;
+    width:6vw;
+}
+
+input[type="text"] {
+    background-color: #ecdbba;
+    width:90%;
+    height: 5vh;
+    width: 12vw;
+    max-height: 40px;
+    border: 0px;
+}
+
+input[name="bookingEmail"] {
+    background-color: #ecdbba;
+    width:95%;
+    height: 5vh;
+    width: 12vw;
+    max-height: 40px;
+    border: 0px;
+}
+
+select{
+    background-color: #ecdbba;
+    height: 5vh;
+    width: 12vw;
+    max-height: 40px;
+    border: 0px;
+}
+
+.Recurring-buttons{
+    width: 90%;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1% 0;
+}
+
+.Recurring-cancel {
+    border: 1px solid #c84b31;
+    color: #c84b31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+    margin-right: 1vw;
+}
+
+.Recurring-submit {
+    color: white;
+    background-color:#c84b31;
+    text-decoration: none;
+    font-family: "Roboto Condensed", sans-serif;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5vw;
+}
