@@ -83,7 +83,7 @@ const SpecificReqModal = (props) => {
 
   const modalStyle = {
     overlay: {
-      backgroundColor: "rgba(255, 255, 255, 0.75)",
+      backgroundColor: "gray",
     },
     content: {
       position: "fixed",
@@ -93,6 +93,8 @@ const SpecificReqModal = (props) => {
       left: "50%",
       right: "auto",
       bottom: "auto",
+      width: "80%",
+      height: "70%",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       overflow: "auto",
