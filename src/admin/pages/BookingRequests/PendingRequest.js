@@ -15,7 +15,9 @@ const PendingRequest = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const displayedData = filteredData.slice(offset, offset + PER_PAGE);
   const Months = props.Months;
-
+  var [tempReqData, setTempReqData] = useState([]);
+  //Initialize to first item in bookingRequest first
+  var [reqData, setReqData] = useState(props.bookingRequest[1]);
   function openModal() {
     setModalOpen(true);
   }
@@ -24,7 +26,9 @@ const PendingRequest = (props) => {
     setCurrentPage(selectedPage);
   }
 
-  const handleRowCLick = (id) => {
+  const handleRowClick = (req) => {
+    console.log(req, "Updating req id to pass down into row...");
+    setReqData(req);
     openModal();
   };
 
@@ -50,9 +54,17 @@ const PendingRequest = (props) => {
       );
     }
     setFilteredData(finalData);
-  }, [props.ccaFilter, props.venueFilter, props.dateFilter]);
+  
+  }, [props.ccaFilter, props.venueFilter, props.dateFilter, reqData]);
+
   return (
     <div className="pendingrequest__main__container">
+      <SpecificReqModal
+        req={reqData}
+        bookingRequests={bookingRequest}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
       <table className="pendingreq__table">
         <thead
           style={{
@@ -69,13 +81,7 @@ const PendingRequest = (props) => {
         </thead>
         {displayedData.map((req) => (
           <tbody>
-            <SpecificReqModal
-              req={req}
-              bookingRequests={bookingRequest}
-              modalOpen={modalOpen}
-              setModalOpen={setModalOpen}
-            />
-            <tr onClick={() => handleRowCLick(req)}>
+            <tr onClick={() => handleRowClick(req)}>
               <td>{req.venue.name}</td>
               <td>{req.cca}</td>
               <td>

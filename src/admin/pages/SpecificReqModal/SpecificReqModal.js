@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SpecificReqModal.css";
 import axios from "axios";
 import Modal from "react-modal";
@@ -9,14 +9,7 @@ import { Conflict } from "http-errors";
 const SpecificReqModal = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [req, setReqData] = useState(props.req);
-  const [CCA, setCCA] = useState();
-  const [ID, setID] = useState();
-  const [email, setEmail] = useState();
   const [reqDate, setReqDate] = useState("Req date is missing from data set");
-  const [bookDate, setBookDate] = useState();
-  const [purpose, setPurpose] = useState();
-  const [venue, setVenue] = useState();
-  const [timeSlots, setTimeSlots] = useState([]);
   const [bookedConflicts, setBookedConflicts] = useState([]);
   const [pendingConflicts, setPendingConflicts] = useState(
     props.bookingRequests
@@ -76,11 +69,10 @@ const SpecificReqModal = (props) => {
 
   const modalStyleReqModal = {
     overlay: {
-      backgroundColor: "gray",
+      //Opacity needs to be fixed.
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     content: {
-      widthMax:"90%",
-      heightMax:"90%",
       position: "absolute",
       display: "flex",
       flexDirection: "row",
@@ -88,7 +80,8 @@ const SpecificReqModal = (props) => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      width: "80%",
+      width: "auto",
+      heightMax: "75%",
       height: "70%",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
@@ -112,12 +105,16 @@ const SpecificReqModal = (props) => {
     props.setModalOpen(false);
   }
 
+  useEffect(() => {
+    console.log("Refreshed req modal");
+  }, [req]);
+
   return (
 
     <Modal
       isOpen={props.modalOpen}
       onRequestClose={closeModal}
-      style={modalStyle}
+      style={modalStyleReqModal}
     >
       <button
         style={closeButtonStyle}
@@ -127,8 +124,6 @@ const SpecificReqModal = (props) => {
       >
         X
       </button>
-
-      {/* <button onClick={() => {fetchData()}}>Fetch</button> */}
       <div className="specificreqmodal__tablecontainer">
         <div>
           <h2>{req.venue.name}</h2>
@@ -164,24 +159,27 @@ const SpecificReqModal = (props) => {
             conflictType="Booked Conflicts"
             bookingRequests={bookedConflicts}
             req={req}
+            setReqData={setReqData}
           />
           <ConflictTable
             conflictType="Pending Conflicts"
             bookingRequests={pendingConflicts}
             req={req}
+            setReqData={setReqData}
           />
           <div className="specificreqmodal__bottomNavigation">
             <Link className="specificreqmodal__rejectbutton" onClick={() => {
-              rejectIntent
+              rejectIntent();
               }}>
                 Reject
               </Link>
             <Link className="specificreqmodal__acceptbutton" onClick={() => {
-              approveIntent
+              approveIntent();
               }}>
                 Accept
               </Link>
           </div>
+          <div className="specificreqmodal__bottomspacer"></div>
         </div>
       </div>
     </Modal>

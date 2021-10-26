@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-.specificreqmodal__container {
-    padding-bottom: 2%;
-}
 
 .specificreqmodal__closebutton {
     display: flex; 
@@ -16,6 +13,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    padding-bottom: 2%;
+    font-size: 1.7vh;
 }
 
 .specificreqmodal__tablecontainer h2{
@@ -135,7 +134,15 @@
     justify-content: center;
     background-color: white;
     margin: 4px;
+}
 
+.specificreqmodal__bottomspacer {
+    height: 2%;
+}
+
+.conflicttable__click:hover {
+    background-color: #ECDBBA;
+    cursor: pointer;
 }
   
 /* .specificreqmodal__reviewbutton:hover {
