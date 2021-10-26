@@ -7,7 +7,6 @@ import ConflictTable from "./ConflictTable";
 import { Conflict } from "http-errors";
 
 const SpecificReqModal = (props) => {
-
   const [modalIsOpen, setIsOpen] = useState(false);
   const [req, setReqData] = useState(props.req);
   const [CCA, setCCA] = useState();
@@ -77,7 +76,7 @@ const SpecificReqModal = (props) => {
 
   const modalStyleReqModal = {
     overlay: {
-      backgroundColor: "rgba(255, 255, 255, 0.5)",
+      backgroundColor: "gray",
     },
     content: {
       widthMax:"90%",
@@ -89,10 +88,12 @@ const SpecificReqModal = (props) => {
       left: "50%",
       right: "auto",
       bottom: "auto",
+      width: "80%",
+      height: "70%",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      overflowY: "auto",
-      WebkitOverflowScrolling: 'touch',
+      overflow: "auto",
+      WebkitOverflowScrolling: "touch",
     },
   };
 
@@ -112,73 +113,78 @@ const SpecificReqModal = (props) => {
   }
 
   return (
-    <div className="specificreqmodal__container">
-      <Modal
-        isOpen={props.modalOpen}
-        onRequestClose={closeModal}
-        style={modalStyleReqModal}
-      >
-        <button
-          style={closeButtonStyle}
-          onClick={() => {
-            closeModal();
-          }}
-        >
-          X
-        </button>
 
-        {/* <button onClick={() => {fetchData()}}>Fetch</button> */}
-        <div className="specificreqmodal__tablecontainer">
-          <div>
-            <h2>{req.venue.name}</h2>
-            <table className="specificreqmodal__table" cellSpacing="0">
-              <tbody>
-                <tr>
-                  <td className="specificreqmodal__td__bg">Request Details</td>
-                  <td>ID: {req.id}</td>
-                  <td>{reqDate}</td>
-                  <td className="specificreqmodal__td__bg">CCA</td>
-                  <td>{req.cca}</td>
-                </tr>
-                <tr>
-                  <td className="specificreqmodal__td__bg">Time booked</td>
-                  <td>{req.date}</td>
-                  <td>
-                    <ul>
+    <Modal
+      isOpen={props.modalOpen}
+      onRequestClose={closeModal}
+      style={modalStyle}
+    >
+      <button
+        style={closeButtonStyle}
+        onClick={() => {
+          closeModal();
+        }}
+      >
+        X
+      </button>
+
+      {/* <button onClick={() => {fetchData()}}>Fetch</button> */}
+      <div className="specificreqmodal__tablecontainer">
+        <div>
+          <h2>{req.venue.name}</h2>
+          <table className="specificreqmodal__table" cellSpacing="0">
+            <tbody>
+              <tr>
+                <td className="specificreqmodal__td__bg">Request Details</td>
+                <td>ID: {req.id}</td>
+                <td>{reqDate}</td>
+                <td className="specificreqmodal__td__bg">CCA</td>
+                <td>{req.cca}</td>
+              </tr>
+              <tr>
+                <td className="specificreqmodal__td__bg">Time booked</td>
+                <td>{req.date}</td>
+                <td>
+                  <ul>
                     {req.timingSlots.map((slot) => (
-                      <span>
-                        {slot}
-                      </span>
+                      <span>{slot}</span>
                     ))}
-                    </ul>
-                  </td>
-                  <td className="specificreqmodal__td__bg">Email</td>
-                  <td>{req.email}</td>
-                </tr>
-                <tr>
-                  <td className="specificreqmodal__td__bg">Purpose</td>
-                  <td colSpan="4">{req.notes}</td>
-                </tr>
-              </tbody>
-            </table>
-            <ConflictTable
-              conflictType="Booked Conflicts"
-              bookingRequests={bookedConflicts}
-              req={req}
-            />
-            <ConflictTable
-              conflictType="Pending Conflicts"
-              bookingRequests={pendingConflicts}
-              req={req}
-            />
-            <div className="specificreqmodal__bottomNavigation">
-              <Link className="specificreqmodal__rejectbutton" onClick={() => rejectIntent}>Reject</Link>
-              <Link className="specificreqmodal__acceptbutton" onClick={() => approveIntent}>Accept</Link>
-            </div>
+                  </ul>
+                </td>
+                <td className="specificreqmodal__td__bg">Email</td>
+                <td>{req.email}</td>
+              </tr>
+              <tr>
+                <td className="specificreqmodal__td__bg">Purpose</td>
+                <td colSpan="4">{req.notes}</td>
+              </tr>
+            </tbody>
+          </table>
+          <ConflictTable
+            conflictType="Booked Conflicts"
+            bookingRequests={bookedConflicts}
+            req={req}
+          />
+          <ConflictTable
+            conflictType="Pending Conflicts"
+            bookingRequests={pendingConflicts}
+            req={req}
+          />
+          <div className="specificreqmodal__bottomNavigation">
+            <Link className="specificreqmodal__rejectbutton" onClick={() => {
+              rejectIntent
+              }}>
+                Reject
+              </Link>
+            <Link className="specificreqmodal__acceptbutton" onClick={() => {
+              approveIntent
+              }}>
+                Accept
+              </Link>
           </div>
         </div>
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   );
 };
 
