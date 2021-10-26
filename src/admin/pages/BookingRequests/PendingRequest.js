@@ -3,6 +3,7 @@ import ReactPaginate from "react-paginate";
 import { CheckBox } from "./CheckBox.js";
 import SpecificReqModal from "../SpecificReqModal/SpecificReqModal";
 import { render } from "react-dom";
+import "./BookingRequest.css";
 
 const PendingRequest = (props) => {
   const PER_PAGE = 15;

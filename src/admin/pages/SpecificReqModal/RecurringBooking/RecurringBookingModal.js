@@ -52,7 +52,7 @@ const RecurringBookingModal = (props) => {
 
     const modalStyleRecModal = {
         overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.25)",
+          backgroundColor: "rgba(255, 255, 255, 0.25)",
         },
         content: {
         width: "70%",

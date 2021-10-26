@@ -15,11 +15,11 @@ const AdminMain = () => {
       <OuterTabs>
         <div tabName="Venue Management">Venue Management</div>
         <BookingRequest tabName="Booking Request" />
-        {/* // <div tabName="Recurring Booking"> 
+        <div tabName="Recurring Booking"> 
            Recurring Booking
            <RecurringBookingModal />
-         </div> */}
-        <RecurringBooking tabName="Recurring Bookings" />
+         </div>
+        {/* <RecurringBooking tabName="Recurring Bookings" /> */}
         <div tabName="Calendar View">Calendar View</div>
       </OuterTabs>
     </div>
