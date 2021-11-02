@@ -23,7 +23,7 @@ const Login = () => {
       }),
       onSubmit: ({ email, password }) => {
         // alert(`Email: ${email}, password: ${password}`);
-        if (email === "test@123" && password === "123456") {
+        if (email === process.env.REACT_APP_ADMIN_EMAIL && password === process.env.REACT_APP_ADMIN_PASSWORD) {
           auth.login();
         } else {
           alert('Wrong account');
@@ -68,10 +68,6 @@ const Login = () => {
       <button type="submit" className="login-btn">
         Log in
       </button>
-      <br/>
-      <br/>
-      <br/>
-      <p> use: test@123, 123456</p>
     </form>
   );
 };
