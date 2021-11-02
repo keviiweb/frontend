@@ -50,6 +50,7 @@ const BookingRequest = () => {
       backgroundColor: "rgba(255, 255, 255, 0.75)",
     },
     content: {
+      position: "fixed",
       display: "flex",
       flexDirection: "row",
       top: "50%",

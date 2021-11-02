@@ -1,6 +1,6 @@
 import { isFunction } from "formik";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+import "./SpecificReqModal/SpecificReqModal.css";
 
 const ConflictTable = (props) => {
     const [req, setReqData] = useState(props.req);
@@ -19,21 +19,16 @@ const ConflictTable = (props) => {
         "Dec",
       ];
 
-    function handleClickOnRequest(key) {
-        props.setReqData(props.bookingRequests[key])
-    }
-
     const getFormattedDateAndSlots = (date, slots) => {
-        console.log(date, "date to be formatted");
         console.log(slots);
-        var month = (date.substring(5,7)) - 1;
-        var day = (date.substring(8));
+        var month = parseInt(date.substring(6,8)) - 1;
+        var day = parseInt(date.substring(9));
         var slotString = "";
         for (var i = 0; i < slots.length; i++) {
             slotString += slots[i] + ' ';
         }                     
           return (
-            <p>{day + ' ' + monthNames[month] + ' |'} { slotString }</p>
+            <p>{day + ' ' + monthNames[month] + ' ||'} { slotString }</p>
         );
     }
 
@@ -57,7 +52,8 @@ const ConflictTable = (props) => {
                     if (reqList[i].timingSlots[j] === req.timingSlots[k]) isSameTimeSlot = true;
                 }
             }
-
+                 
+            console.log(isSameDay, isSameVenue, isSameTimeSlot);
             var checkConflict = (isSameDay && isSameVenue) && isSameTimeSlot;
 
             if (checkConflict) {
@@ -68,12 +64,6 @@ const ConflictTable = (props) => {
 
         return reqList ? _pendingConflicts : [];
     }
-
-    useEffect(() => {
-        console.log("Refreshed conflict table");
-        console.log(props.req);
-        sortConflicts(props.bookingRequests);
-    }, [props.req, props.bookingRequests]);
 
     
     return (
@@ -92,13 +82,7 @@ const ConflictTable = (props) => {
             <tbody>
                 {sortConflicts(props.bookingRequests).map((item,key) => {
                     return (
-                    <tr 
-                        key={ key } 
-                        onClick={() => {
-                            handleClickOnRequest(key);
-                        }}
-                        className="conflicttable__click"
-                    >
+                    <tr key={ key } >
                         <td>{ item.time }</td>
                         <td>{ item.cca }</td>
                         <td>{ getFormattedDateAndSlots(item.date, item.timingSlots) }</td>
